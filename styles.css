@@ -1,0 +1,33 @@
+body {
+    display:flex;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #444444;
+    margin-top: 5vh;
+    
+}
+
+.main-container {
+    background-color: #171717;
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    border: 3px solid black;
+    overflow: hidden;
+   
+}
+
+.column {
+    display: flex;
+    background-color: gray;
+    
+}
+
+
+.cell {
+    background-color: #d3d3d3;
+    border: 1px solid #b7b7b7;
+    height:166px;
+    width: 166px;
+}
