@@ -8,14 +8,72 @@ body {
     
 }
 
+/* Main Container */
 .main-container {
+    display:flex;
+    justify-content: center;
+    width: 80vw;
+    height: 500px;
+}
+
+.menu-container{
+    background-color: #0d0d0d;
+    display:flex;
+    justify-content: center;
+    height: 100%;
+    width: 30%;
+    opacity: .50;
+
+}
+
+.menu-plate {
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    background-color: #404040;
+    width: 60%;
+    height: 70%;
+}
+
+.color-swatch-container {
+    display:flex;
+    gap: 5px;
+    justify-content: center;
+    
+    
+
+}
+
+.color-swatch {
+    height:50px;
+    width:50px;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+
+.menu-bar-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.menu-items {
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+}
+/* Grid Container */
+
+.grid-container {
     margin:0px;
     padding:0px;
+    flex-shrink: 0;
     overflow: hidden;
    
 }
 
-/* Grid Properties */
 .row {
     display: flex;
     background-color: gray;

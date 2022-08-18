@@ -7,7 +7,7 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
     let cellSize = (containerWidth / numCells) - 2; // Account for border!
 
     
-    let mainContainerEl = document.querySelector('.main-container');
+    let mainContainerEl = document.querySelector('.grid-container');
     containerWidth = containerWidth.toString();
     containerHeight = containerHeight.toString();
 
@@ -39,4 +39,4 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
     }
 }
 
-drawGrid(600, 600, [5]);
+drawGrid(500, 500, [5]);
