@@ -1,36 +1,42 @@
-function drawGrid(containerWidth, gridDimensions) {
-    let gridWidth = gridDimensions[0];
-    let gridHeight = gridDimensions[1];
 
-    let cols = gridWidth;
-    let numCells = cols; // e.g. 3x3 is 3 columns with 3 cells each
-    let cellSize = containerWidth / cols; 
+// Draws a grid of divs within .main-container
+function drawGrid(containerWidth, containerHeight, gridSize) {
+    
+    let numRows = gridSize;
+    let numCells = numRows; // if there's 3 rows, there's 3 cells per row
+    let cellSize = (containerWidth / numCells) - 2; // Account for border!
 
+    
     let mainContainerEl = document.querySelector('.main-container');
+    containerWidth = containerWidth.toString();
+    containerHeight = containerHeight.toString();
 
-    for (x=0; x<cols; x++) {
+    mainContainerEl.style.width = containerWidth + 'px';
+    mainContainerEl.style.height = containerHeight + 'px';
+
+    for (x=0; x<numRows; x++) {
         // Create each column
-        let columnEl = document.createElement('div');
-        columnEl.classList.add('column');
+        let rowEl = document.createElement('div');
+        rowEl.classList.add('row');
 
         for(i=0; i<numCells; i++){
-            // Fill each column with cells 
+            // Fill each column with cells across
             let cellEl = document.createElement('div');
             cellEl.classList.add('cell');
             
-            // Set height and width of each cell
+            // // Set height and width of each cell
             height = cellSize.toString();
             width = cellSize.toString();
-
+            
             cellEl.style.height = height + 'px';
             cellEl.style.width = width + 'px';
 
             // Add cell to column
-            columnEl.appendChild(cellEl);
+            rowEl.appendChild(cellEl);
         }
         // Add column to main-container
-        mainContainerEl.appendChild(columnEl);
+        mainContainerEl.appendChild(rowEl);
     }
 }
 
-drawGrid(500, [3,3]);
+drawGrid(600, 600, [5]);

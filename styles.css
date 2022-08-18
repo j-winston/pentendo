@@ -4,21 +4,19 @@ body {
     height: 100vh;
     box-sizing: border-box;
     background-color: #444444;
-    margin-top: 5vh;
+    margin-top: 8vh;
     
 }
 
 .main-container {
-    background-color: #171717;
-    display: inline-block;
-    width: 500px;
-    height: 500px;
-    border: 3px solid black;
+    margin:0px;
+    padding:0px;
     overflow: hidden;
    
 }
 
-.column {
+/* Grid Properties */
+.row {
     display: flex;
     background-color: gray;
     
@@ -26,8 +24,67 @@ body {
 
 
 .cell {
+    margin:0px;
+    padding: 0px;
     background-color: #d3d3d3;
     border: 1px solid #b7b7b7;
-    height:166px;
-    width: 166px;
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Menu Properties */
+/* 
+.left-plate {
+    display:flex;
+    max-width: 30px;
+    background-color: #171717;
+    
+    
+}
+
+.menu-container {
+    display:flex;
+    flex-direction: column;
+    background-color: #404040;
+} */
+/* 
+.swatch-container {
+    display:flex;
+    gap: 20px;
+}
+
+.color-swatch {
+    display:flex;
+    background-color: white;
+    height: 50px;
+    width: 50px;
+}
+
+.menu-items {
+    display:flex;
+    flex-direction: column;
+}
+
+.menu-text {
+    font: open sans;
+    font-size: 34px;
+} */ 
+
