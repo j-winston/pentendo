@@ -36,4 +36,4 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
   }
 }
 
-drawGrid(500, 500, [5]);
+drawGrid(700, 700, [5]);

@@ -23,16 +23,67 @@ body::before {
 .main-container {
     display:flex;
     justify-content: center;
-    width: 80vw;
-    height: 500px;
+    width: 85vw;
+    height: 700px;
 }
+
+.side-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin:10px -40px 0px -60px;
+    
+    
+    
+    
+}
+
+
+.logo {
+    font-size: 20px;
+    margin-top: 75px;
+    z-index: 2;
+    transform: rotate(90deg)
+}
+
+.slide-container {
+    
+    margin-left:10px;
+}
+
+.slider {
+    transform:rotate(90deg);
+
+    
+}
+
+.grid-size-container {
+    display:flex;
+    transform: rotate(90deg);
+
+}
+
+.high-digit {
+    font-size: 35px;
+    color:white;
+}
+
+.low-digit {
+    color:white;
+}
+
+.highlight {
+    color:red;
+}
+
+
 
 .menu-container{
     background-color: #0d0d0d;
     display:flex;
     justify-content: center;
     height: 100%;
-    width: 30%;
+    width: 45%;
     opacity: .50;
 
 }
@@ -42,14 +93,13 @@ body::before {
     flex-direction: column;
     align-self: center;
     background-color: #404040;
-    width: 60%;
-    height: 70%;
+    width: 65%;
+    height: 80%;
 }
 
 .color-swatch-container {
     display:flex;
-    gap: 5px;
-    justify-content: center;
+    
     
     
 
@@ -66,14 +116,16 @@ body::before {
 .menu-bar-container {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    
+   
 }
 
 .menu-items {
     display:flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-left: 10px; 
 }
 /* Grid Container */
 
