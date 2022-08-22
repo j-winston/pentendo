@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     background-color: #1f1f1f;
     margin-top: 8vh;
+    font-family: pretendo;
     
     
 }
@@ -66,18 +67,25 @@ body::before {
 
 .grid-size-container {
     display:flex;
-    transform: rotate(90deg);
+    align-self: flex-end;
+    margin-right: 50px;
+    margin-bottom:-70px;
+    
+     
 
 }
 
 .high-digit {
-    font-size: 35px;
+    font-size: 55px;
+    font-family: open-sans;
     color:white;
 }
 
 .low-digit {
     color:white;
+    font-family: open-sans;
 }
+
 
 .highlight {
     color:red;
@@ -90,7 +98,7 @@ body::before {
     display:flex;
     justify-content: center;
     height: 100%;
-    width: 50%;
+    width:350px;
 
 }
 
@@ -99,14 +107,14 @@ body::before {
     flex-direction: column;
     align-self: center;
     background-color: #404040;
-    width: 65%;
-    height: 80%;
+    width:70%;
+    height: 49%;
 }
 
 .menu-items {
     display:flex;
     flex-direction: column;
-    height: 100%;
+    height: 80%;
     justify-content: space-around;
    
 }
@@ -132,6 +140,7 @@ body::before {
 .fb-selector-container {
     display: flex;
     justify-content: space-evenly;
+    margin-top: -30px;
     
 }
 
@@ -189,7 +198,12 @@ body::before {
 
 
 
+/* Fonts */
 
+@font-face {
+    font-family: pretendo;
+    src: url(assets/Pretendo.ttf)
+}
 
 
 
