@@ -1,6 +1,5 @@
 body {
     display:flex;
-    justify-content: center;
     height: 100vh;
     box-sizing: border-box;
     background-color: #1f1f1f;
@@ -22,7 +21,7 @@ body::before {
 /* Main Container */
 .main-container {
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 85vw;
     height: 700px;
 }
@@ -43,8 +42,16 @@ body::before {
     font-size: 20px;
     margin-top: 75px;
     z-index: 2;
-    transform: rotate(90deg)
+    transform: rotate(90deg);
+    text-decoration: none;
+    font-weight: 900;
 }
+
+.logo-half {
+    color:#7a7a7a;
+    
+}
+
 
 .slide-container {
     
@@ -83,12 +90,11 @@ body::before {
     display:flex;
     justify-content: center;
     height: 100%;
-    width: 45%;
-    opacity: .50;
+    width: 50%;
 
 }
 
-.menu-plate {
+.menu-items {
     display:flex;
     flex-direction: column;
     align-self: center;
@@ -108,30 +114,50 @@ body::before {
 .color-swatch-container {
     display:flex;
     justify-content: center;
-    gap: 10px;
-     
-    
-    
-    
+    margin:5px;
+    gap:10px;
+   
+
 
 }
+
+
 
 .color-swatch {
-    height:50px;
-    width:50px;
+    height:70px;
+    width:70px;
     background-color: rgb(255, 255, 255);
-   
-    
+}
+
+.fb-selector-container {
+    display: flex;
+    justify-content: space-evenly;
     
 }
+
+.fb-selector-text {
+    font-size: 35px;
+}
+
 
 
 .menu-bar-container {
     display:flex;
     flex-direction: column;
-    margin-left:10px;
+    margin-left:10px;  
+}
+
+.nav-links  {
+    font-size:35px;
+    text-decoration: none;
+    color:gray;
+    font-weight: 900;
     
-   
+}
+
+.clear-link {
+    font-size: 20px;
+    margin-top: 30px;
 }
 
 
