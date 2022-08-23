@@ -18,6 +18,9 @@ body::before {
 }
 
 
+a:active{
+    color:rgb(255, 255, 255);
+}
 
 /* Main Container */
 .main-container {
@@ -25,13 +28,18 @@ body::before {
     justify-content: flex-start;
     width: 85vw;
     height: 700px;
+   
+    
 }
 
 .side-container {
     display:flex;
     flex-direction: column;
     justify-content: space-around;
-    margin:10px -40px 0px -60px;
+    margin-left: -20px;
+    width:30%;
+  
+    
     
     
     
@@ -42,10 +50,10 @@ body::before {
 .logo {
     font-size: 20px;
     margin-top: 75px;
-    z-index: 2;
     transform: rotate(90deg);
     text-decoration: none;
     font-weight: 900;
+    
 }
 
 .logo-half {
@@ -53,26 +61,27 @@ body::before {
     
 }
 
-
-.slide-container {
-    
-    margin-left:10px;
+.slider {
+    transform:rotate(90deg);  
+    width:200px;
+    height:2px;
+    position:relative;
+    right:50px;
+    accent-color: red;
 }
 
-.slider {
-    transform:rotate(90deg);
-
-    
+input[type="range"] {
+    -webkit-appearance:none;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+   
 }
 
 .grid-size-container {
-    display:flex;
-    align-self: flex-end;
-    margin-right: 50px;
-    margin-bottom:-70px;
+   
+    transform: rotate(90deg);
     
-     
-
 }
 
 .high-digit {
@@ -99,6 +108,7 @@ body::before {
     justify-content: center;
     height: 100%;
     width:350px;
+    
 
 }
 
@@ -109,6 +119,7 @@ body::before {
     background-color: #404040;
     width:70%;
     height: 49%;
+    
 }
 
 .menu-items {
@@ -161,7 +172,6 @@ body::before {
     text-decoration: none;
     color:gray;
     font-weight: 900;
-    
 }
 
 .clear-link {
