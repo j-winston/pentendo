@@ -148,6 +148,7 @@ input[type="range"] {
 
 .color-swatch-container {
     display:flex;
+    
     justify-content: center;
     margin:5px;
     gap:10px;
@@ -160,7 +161,8 @@ input[type="range"] {
 
 .color-swatch {
     height:70px;
-    width:70px;
+    min-width:70px;
+    border-radius: 50%;
     background-color: rgb(255, 255, 255);
 }
 
@@ -173,6 +175,7 @@ input[type="range"] {
 
 .fb-selector-text {
     font-size: 35px;
+    
 }
 
 
