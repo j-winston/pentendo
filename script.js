@@ -1,10 +1,14 @@
 // Draws a grid of divs within .main-container testing comment
 function drawGrid(containerWidth, containerHeight, gridSize) {
+
+  
+
   let numRows = gridSize;
   let numCells = numRows; // if there's 3 rows, there's 3 cells per row
   let cellSize = containerWidth / numCells - 2; // Account for border!
 
   let mainContainerEl = document.querySelector(".grid-container");
+
   containerWidth = containerWidth.toString();
   containerHeight = containerHeight.toString();
 
@@ -32,8 +36,39 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
       rowEl.appendChild(cellEl);
     }
     // Add column to main-container
+  
     mainContainerEl.appendChild(rowEl);
   }
 }
 
-drawGrid(700, 700, [5]);
+function clearGrid(){
+  const allRows = document.querySelectorAll('.row');
+  allRows.forEach(row => row.remove());
+
+}
+
+function updateGridDisplay(gridSize){
+  let bigDigit = document.querySelector('.high-digit');
+  let smallDigit = document.querySelector('.low-digit');
+
+bigDigit.textContent = gridSize;
+smallDigit.textContent = 'x' + gridSize;
+
+}
+
+
+function setGridSize(){
+  gridSize = Number(this.value);
+  clearGrid();
+  updateGridDisplay(gridSize);
+  drawGrid(700, 700, gridSize);
+ 
+}
+
+
+
+const rangeInput = document.querySelector('.slider');
+rangeInput.addEventListener('input', setGridSize)
+
+// // Draw default grid 
+drawGrid(700,700, 2);
