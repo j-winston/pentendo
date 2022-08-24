@@ -89,10 +89,16 @@ input[type="range"] {
 .high-digit {
     font-size: 55px;
     font-family: open-sans;
-    color:white;
+    color:rgb(95, 95, 95);
     
     
 }
+
+.low-digit {
+    color:rgb(95, 95, 95);
+    font-family: open-sans;
+}
+
 
 .fade-in-text {
     animation: fadeIn 4s;
@@ -105,10 +111,6 @@ input[type="range"] {
 
 }
 
-.low-digit {
-    color:white;
-    font-family: open-sans;
-}
 
 
 
@@ -174,7 +176,8 @@ input[type="range"] {
 }
 
 .fb-selector-text {
-    font-size: 35px;
+    font-size: 30px;
+    color:rgb(102, 102, 102);
     
 }
 
