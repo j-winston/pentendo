@@ -47,24 +47,25 @@ function clearGrid(){
 
 }
 
-function updateGridDisplay(gridSize){
-  let bigDigit = document.querySelector('.high-digit');
-  let smallDigit = document.querySelector('.low-digit');
-
-bigDigit.textContent = gridSize;
-smallDigit.textContent = 'x' + gridSize;
-
-}
-
 
 function setGridSize(){
   gridSize = Number(this.value);
   clearGrid();
+  // update grid size indicator
   updateGridDisplay(gridSize);
   drawGrid(700, 700, gridSize);
  
 }
 
+function updateGridDisplay(gridSize){
+  let bigDigit = document.querySelector('.high-digit');
+  let smallDigit = document.querySelector('.low-digit');
+
+  bigDigit.textContent = gridSize;
+  smallDigit.textContent = 'x' + gridSize;
+
+
+}
 
 
 const rangeInput = document.querySelector('.slider');

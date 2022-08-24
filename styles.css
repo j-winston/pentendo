@@ -82,19 +82,34 @@ input[type="range"] {
 .grid-size-container {
    
     transform: rotate(90deg);
-    
+  
+   
 }
 
 .high-digit {
     font-size: 55px;
     font-family: open-sans;
     color:white;
+    
+    
+}
+
+.fade-in-text {
+    animation: fadeIn 4s;
+
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100%{opacity: 1;}
+
 }
 
 .low-digit {
     color:white;
     font-family: open-sans;
 }
+
 
 
 .highlight {
