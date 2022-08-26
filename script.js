@@ -104,8 +104,20 @@ rangeInput.addEventListener('input', setGridSize)
 const gridToggler = document.querySelector(".grid-toggle-container");
 gridToggler.addEventListener('click', toggleGridLines);
 
+// Draw default grid 
+drawGrid(700, 700, 2);
 
+// On click change background color of swatches.
+document.getElementById('fg').addEventListener('change', (e)=>{
+  color = e.target.value;
+  console.log(color);
+  document.querySelector('.fg-swatch').style.backgroundColor = color;
+});
 
+document.getElementById('bg').addEventListener('change', (e)=>{
+  color = e.target.value;
+  console.log(color);
+  document.querySelector('.bg-swatch').style.backgroundColor = color;
+});
+ 
 
-// // Draw default grid 
-drawGrid(700,700, 2);
