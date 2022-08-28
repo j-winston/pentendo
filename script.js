@@ -96,10 +96,26 @@ function showGridLines() {
 
 
 function setActiveTool() {
-    
+    // Reset menu btns 
+    document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
+
+    // Set to draw mode  
     if (this.mode == 'draw'){
-      const cell = document.querySelector('.cell');
-      // cell.classList.add(`:hover`);
+      // Highlight drawing mode btn
+      this.style.color='white';
+      let ColorInput = document.getElementById('fg');
+      let fgColor = ColorInput.value;
+
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach((cell) => {addEventListener('mouseover', ()=>{cell.style.backgroundColor='fgColor'});})
+      
+    }
+
+    if (this.mode == 'erase'){
+      // Highlight drawing mode btn
+      this.style.color='white';
+      let ColorInput = document.getElementById('fg');
+      let fgColor = ColorInput.value;
     }
     
 }
@@ -127,7 +143,9 @@ drawBtn.addEventListener('click', setActiveTool, false);
 
 // Switch to erase mode on click
 const eraseBtn = document.querySelector('.erase-btn');
+eraseBtn.mode = 'erase';
 eraseBtn.addEventListener('click', setActiveTool, false);
+
 
 // Switch to fill mode on click 
 const fillBtn = document.querySelector('.fill-btn');
@@ -153,6 +171,5 @@ document.getElementById('bg').addEventListener('change', (e)=>{
   console.log(color);
   document.querySelector('.bg-swatch').style.backgroundColor = color;
 });
- 
-// Test active tool
+
 
