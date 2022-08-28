@@ -95,14 +95,48 @@ function showGridLines() {
 }
 
 
+function setActiveTool() {
+    
+    if (this.mode == 'draw'){
+      const cell = document.querySelector('.cell');
+      // cell.classList.add(`:hover`);
+    }
+    
+}
+
+
 // MAIN 
+
 let showingGrid = true;
 
+// Event handlers //
+
+// Adjust grid size on slider change
 const rangeInput = document.querySelector('.slider');
 rangeInput.addEventListener('input', setGridSize)
 
+// Turn grid lines on and off 
 const gridToggler = document.querySelector(".grid-toggle-container");
 gridToggler.addEventListener('click', toggleGridLines);
+
+// Switch to draw mode on click  
+const drawBtn = document.querySelector('.draw-btn');
+drawBtn.mode = 'draw';
+drawBtn.addEventListener('click', setActiveTool, false);
+
+
+// Switch to erase mode on click
+const eraseBtn = document.querySelector('.erase-btn');
+eraseBtn.addEventListener('click', setActiveTool, false);
+
+// Switch to fill mode on click 
+const fillBtn = document.querySelector('.fill-btn');
+fillBtn.addEventListener('click', setActiveTool, false);
+
+// Clear all art from grid on click 
+const clearBtn = document.querySelector('.clear-btn', false);
+clearBtn.addEventListener('click', setActiveTool);
+
 
 // Draw default grid 
 drawGrid(700, 700, 2);
@@ -120,4 +154,5 @@ document.getElementById('bg').addEventListener('change', (e)=>{
   document.querySelector('.bg-swatch').style.backgroundColor = color;
 });
  
+// Test active tool
 

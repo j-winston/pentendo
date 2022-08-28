@@ -155,6 +155,32 @@ input[type="range"] {
 
 }
 
+.fb-selector-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: -30px;
+    
+}
+
+#fg { 
+   
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Color input box is hidden and fg-swatch is visible */
+    cursor: pointer;
+    
+
+}
+
+#bg { 
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    
+
+}
+
 .fg-swatch {
     height:70px;
     min-width:70px;
@@ -172,38 +198,7 @@ input[type="range"] {
 }
 
 
-input[type="color"] {
-    -webkit-appearance:none;
 
-
-}
-
-
-#fg { 
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    
-
-}
-
-#bg { 
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    
-
-}
-
-
-.fb-selector-container {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: -30px;
-    
-}
 
 .fb-selector-text {
     font-size: 10px;
@@ -231,6 +226,15 @@ input[type="color"] {
     font-size: 20px;
     margin-top: 30px;
 }
+
+.draw-btn:hover,
+.erase-btn:hover,
+.fill-btn:hover,
+.clear-btn:hover {
+    color: white;
+    cursor: pointer;
+}
+
 
 #grid-toggle-icon {
     height:50px;
@@ -278,10 +282,13 @@ input[type="color"] {
 }
 
 
+/* Drawing Tools */
 
+.draw:hover {
+    background-color: #0d0d0d;
+    color: black;
 
-
-
+}
 
 
 
