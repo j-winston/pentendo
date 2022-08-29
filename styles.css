@@ -220,6 +220,8 @@ input[type="range"] {
     text-decoration: none;
     color:#575757;
     font-weight: 900;
+    
+    
 }
 
 .clear-link {
@@ -227,12 +229,12 @@ input[type="range"] {
     margin-top: 30px;
 }
 
-.draw-btn:hover,
-.erase-btn:hover,
-.fill-btn:hover,
-.clear-btn:hover {
-    color: white;
+.draw-btn,
+.erase-btn,
+.fill-btn,
+.clear-btn {
     cursor: pointer;
+    
 }
 
 

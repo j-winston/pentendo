@@ -40,6 +40,7 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
 }
  
 
+
 function clearGrid() {
   const allRows = document.querySelectorAll('.row');
   allRows.forEach(row => row.remove());
@@ -101,18 +102,20 @@ function setActiveTool() {
 
     // Set to draw mode  
     if (this.mode == 'draw'){
-      // Highlight drawing mode btn
+      // Change nav link to white 
       this.style.color='white';
       let ColorInput = document.getElementById('fg');
       let fgColor = ColorInput.value;
 
-      const cells = document.querySelectorAll('.cell');
-      cells.forEach((cell) => {addEventListener('mouseover', ()=>{cell.style.backgroundColor='fgColor'});})
-      
+      // Make color on grid
+      let cells = document.querySelectorAll('.cell');
+      cells.forEach(cell => {cell.addEventListener('mouseover', function(e){
+        e.target.style.backgroundColor=fgColor; }, false)
+    });
     }
 
     if (this.mode == 'erase'){
-      // Highlight drawing mode btn
+      // Change nav link to white 
       this.style.color='white';
       let ColorInput = document.getElementById('fg');
       let fgColor = ColorInput.value;
@@ -120,6 +123,8 @@ function setActiveTool() {
     
 }
 
+// Draw default grid 
+drawGrid(700, 700, 2);
 
 // MAIN 
 
@@ -156,10 +161,9 @@ const clearBtn = document.querySelector('.clear-btn', false);
 clearBtn.addEventListener('click', setActiveTool);
 
 
-// Draw default grid 
-drawGrid(700, 700, 2);
 
-// On click change background color of swatches.
+
+// On click change background color of swatches and activate 
 document.getElementById('fg').addEventListener('change', (e)=>{
   color = e.target.value;
   console.log(color);
