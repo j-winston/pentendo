@@ -96,31 +96,44 @@ function showGridLines() {
 }
 
 
-function setActiveTool() {
+function drawTool() {
     // Reset menu btns 
     document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
 
-    // Set to draw mode  
-    if (this.mode == 'draw'){
-      // Change nav link to white 
-      this.style.color='white';
-      let ColorInput = document.getElementById('fg');
-      let fgColor = ColorInput.value;
+    // Change nav link to white 
+    this.style.color='white';
+    let ColorInput = document.getElementById('fg');
 
-      // Make color on grid
-      let cells = document.querySelectorAll('.cell');
-      cells.forEach(cell => {cell.addEventListener('mouseover', function(e){
-        e.target.style.backgroundColor=fgColor; }, false)
-    });
-    }
+    let cells = document.querySelectorAll('.cell');
 
-    if (this.mode == 'erase'){
-      // Change nav link to white 
-      this.style.color='white';
-      let ColorInput = document.getElementById('fg');
-      let fgColor = ColorInput.value;
-    }
+    // Mouseover behavior for draw
+    cells.forEach(cell => {cell.addEventListener('mouseover', function(e){
+      let colorInput = document.getElementById('fg').value;
+      e.target.style.backgroundColor=colorInput; }, false)
+  });
     
+}
+
+
+function erase() {
+  // Reset menu btns 
+  document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
+  killEventListeners();
+
+  // Change nav link to white 
+  this.style.color='white';
+  
+  // 'Erase' cell with default color
+  let cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => { cell.addEventListener('mouseover', function(e) {
+    e.target.style.backgroundColor = '#eeeeee' })})
+
+  }
+
+
+
+function killEventListeners() {
+
 }
 
 // Draw default grid 
@@ -140,39 +153,34 @@ rangeInput.addEventListener('input', setGridSize)
 const gridToggler = document.querySelector(".grid-toggle-container");
 gridToggler.addEventListener('click', toggleGridLines);
 
-// Switch to draw mode on click  
+// Switch to draw mode 
 const drawBtn = document.querySelector('.draw-btn');
-drawBtn.mode = 'draw';
-drawBtn.addEventListener('click', setActiveTool, false);
+drawBtn.addEventListener('click', drawTool, false);
 
 
-// Switch to erase mode on click
+// Switch to erase mode 
 const eraseBtn = document.querySelector('.erase-btn');
-eraseBtn.mode = 'erase';
-eraseBtn.addEventListener('click', setActiveTool, false);
+eraseBtn.addEventListener('click', erase, false);
 
-
-// Switch to fill mode on click 
+// Switch to fill mode  
 const fillBtn = document.querySelector('.fill-btn');
-fillBtn.addEventListener('click', setActiveTool, false);
+fillBtn.addEventListener('click', drawTool, false);
 
-// Clear all art from grid on click 
+// Clear all art from grid 
 const clearBtn = document.querySelector('.clear-btn', false);
-clearBtn.addEventListener('click', setActiveTool);
+clearBtn.addEventListener('click', drawTool);
 
 
 
 
-// On click change background color of swatches and activate 
+// On click, change background color of swatches 
 document.getElementById('fg').addEventListener('change', (e)=>{
-  color = e.target.value;
-  console.log(color);
-  document.querySelector('.fg-swatch').style.backgroundColor = color;
+  let fgColor = e.target.value;
+  document.querySelector('.fg-swatch').style.backgroundColor = fgColor;
 });
 
 document.getElementById('bg').addEventListener('change', (e)=>{
   color = e.target.value;
-  console.log(color);
   document.querySelector('.bg-swatch').style.backgroundColor = color;
 });
 
