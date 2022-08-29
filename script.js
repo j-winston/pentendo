@@ -116,25 +116,50 @@ function drawTool() {
 
 
 function erase() {
-  // Reset menu btns 
+  // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
-  killEventListeners();
-
-  // Change nav link to white 
   this.style.color='white';
   
   // 'Erase' cell with default color
   let cells = document.querySelectorAll('.cell');
-  cells.forEach(cell => { cell.addEventListener('mouseover', function(e) {
-    e.target.style.backgroundColor = '#eeeeee' })})
+  cells.forEach(cell => { cell.addEventListener('mouseover', eraseCell)});
+
+  function eraseCell(e) {
+    e.target.style.backgroundColor = '#eeeeee';
+
+  }
 
   }
 
 
+function fill() {
+  // Highlight current drawing mode 
+  document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'});
+  this.style.color = 'white';
+
+  // Remove event listeners 
+  killEventListeners();
+
+  // Each cell changes to the same color on click
+  let cells = document.querySelectorAll('.cell');
+
+  cells.forEach(cell => cell.addEventListener('click', function() {
+    let bgColor = document.getElementById('bg').value;
+    fillCells(bgColor, cells);}))
+
+    function fillCells(fillColor, allCells) {
+      allCells.forEach(cell => cell.style.backgroundColor = fillColor );
+    }
+}
 
 function killEventListeners() {
+  // Remove event handlers for all functions 
+  document.querySelectorAll('.cells').forEach(cell => cell.removeEventListener('click', eraseCell));
+  document.querySelectorAll('.cells').forEach(cell => cell.removeEventListener('click', drawCell));
+  document.querySelectorAll('.cells').forEach(cell => cell.removeEventListener('click', fill));
 
 }
+
 
 // Draw default grid 
 drawGrid(700, 700, 2);
@@ -164,7 +189,7 @@ eraseBtn.addEventListener('click', erase, false);
 
 // Switch to fill mode  
 const fillBtn = document.querySelector('.fill-btn');
-fillBtn.addEventListener('click', drawTool, false);
+fillBtn.addEventListener('click', fill, false);
 
 // Clear all art from grid 
 const clearBtn = document.querySelector('.clear-btn', false);
