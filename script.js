@@ -1,4 +1,5 @@
-// Draws a grid of divs within .main-container testing comment
+
+// Draws a grid of divs within .main-container 
 function drawGrid(containerWidth, containerHeight, gridSize) {
   let numRows = gridSize;
   let numCells = numRows; // if there's 3 rows, there's 3 cells per row
@@ -37,6 +38,7 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
     mainContainerEl.appendChild(rowEl);
 
   }
+
 }
  
 
@@ -96,7 +98,7 @@ function showGridLines() {
 }
 
 
-function drawTool() {
+function draw() {
   // Remove event listeners 
   killEventListeners();
 
@@ -174,11 +176,27 @@ function killEventListeners() {
   }
 
 
+  function clear() {
+    killEventListeners();
+  
+    // Highlight current drawing mode 
+    document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
+    this.style.color='white';
+  
+    // 'Erase' cell with default color
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => { cell.style.backgroundColor = '#eeeeee'});
+
+  }
+
+
+
 // MAIN //
 
 // Draw default grid 
 drawGrid(700, 700, 2);
 
+// Show grid lines 
 let showingGrid = true;
 
 // Event handlers //
@@ -193,7 +211,7 @@ gridToggler.addEventListener('click', toggleGridLines);
 
 // Switch to draw mode 
 const drawBtn = document.querySelector('.draw-btn');
-drawBtn.addEventListener('click', drawTool, false);
+drawBtn.addEventListener('click', draw, false);
 
 // Switch to erase mode 
 const eraseBtn = document.querySelector('.erase-btn');
@@ -205,7 +223,7 @@ fillBtn.addEventListener('click', fill, false);
 
 // Clear all art from grid 
 const clearBtn = document.querySelector('.clear-btn', false);
-clearBtn.addEventListener('click', drawTool);
+clearBtn.addEventListener('click', clear, false);
 
 // Color Selectors //
 
