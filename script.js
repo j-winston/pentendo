@@ -30,6 +30,7 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
 
       cellEl.style.height = height + "px";
       cellEl.style.width = width + "px";
+      cellEl.classList.add('fade-in');
 
       // Add cell to column
       rowEl.appendChild(cellEl);

@@ -5,7 +5,7 @@ body {
     background-color: #1f1f1f;
     margin-top: 8vh;
     font-family: pretendo;
-    
+   
     
 }
 body::before {
@@ -97,9 +97,19 @@ input[type="range"] {
 
 
 .fade-in-text {
-    animation: fadeIn 4s;
+    animation: fadeIn 2s;
 
 }
+
+
+.fade-in:hover {
+    animation-name: fadeIn;
+    animation-duration: .5s;
+    transition-timing-function: linear;
+}
+
+
+
 
 @keyframes fadeIn {
     0% {opacity: 0;}
@@ -270,8 +280,11 @@ input[type="range"] {
     padding: 0px;
     background-color: #eeeeee;
     border: 1px solid #d5d4d4;
+    transition: opacity 4s;
    
 }
+
+
 
 .cell:hover {
     transition: opacity 5s;
