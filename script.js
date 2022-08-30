@@ -110,6 +110,11 @@ function draw() {
   // Remove event listeners 
   killEventListeners();
 
+  // Underline the 'f'
+   // Underline the 'f'
+  document.querySelector('.bg-selector-text').style.textDecoration = 'none';
+  document.querySelector('.fg-selector-text').style.textDecoration = 'underline';
+
   // Reset menu btns 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
 
@@ -134,6 +139,9 @@ function draw() {
 
 function erase() {
   currentState.activeTool = 'erase';
+
+  document.querySelector('.fg-selector-text').style.textDecoration = 'none';
+  document.querySelector('.bg-selector-text').style.textDecoration = 'none';
   // Remove event listeners 
   killEventListeners();
 
@@ -158,6 +166,10 @@ function fill() {
   // Remove event listeners 
   killEventListeners();
 
+  // Highlight the 'b'
+  document.querySelector('.fg-selector-text').style.textDecoration = 'none';
+  document.querySelector('.bg-selector-text').style.textDecoration = 'underline';
+  
   // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'});
   fillBtn.style.color='white';

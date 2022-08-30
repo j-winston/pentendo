@@ -110,7 +110,6 @@ input[type="range"] {
 
 
 
-
 @keyframes fadeIn {
     0% {opacity: 0;}
     100%{opacity: 1;}
@@ -210,10 +209,12 @@ input[type="range"] {
 
 
 
-.fb-selector-text {
+.fg-selector-text,
+.bg-selector-text {
     font-size: 10px;
     color:rgb(255, 255, 255);
     margin-top: 40px;
+    
     
 }
 
@@ -230,6 +231,8 @@ input[type="range"] {
     text-decoration: none;
     color:#575757;
     font-weight: 900;
+
+   
     
     
 }
@@ -244,6 +247,9 @@ input[type="range"] {
 .fill-btn,
 .clear-btn {
     cursor: pointer;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    transition-timing-function: linear;
     
 }
 
