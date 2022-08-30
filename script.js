@@ -136,11 +136,9 @@ function erase() {
   // Remove event listeners 
   killEventListeners();
 
-  // Once again add the click listeners 
-
-  // Highlight current drawing mode 
+  // Change nav link to white
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
-  this.style.color='white';
+  eraseBtn.style.color='white';
 
   function eraseCell(e) {
     e.target.style.backgroundColor = '#eeeeee';
@@ -161,7 +159,7 @@ function fill() {
 
   // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'});
-  this.style.color = 'white';
+  fillBtn.style.color='white';
 
   // Each cell changes to the same color on click
   let cells = document.querySelectorAll('.cell');
@@ -172,6 +170,21 @@ function fill() {
   }
 
   cells.forEach(cell => cell.addEventListener('click', fillCells, false));
+
+}
+
+
+function clear() {
+  currentState.activeTool = 'clearScreen'
+  killEventListeners();
+
+  // Highlight current drawing mode 
+  document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
+  clearBtn.style.color = 'white';
+
+  // Fill all cells with default color
+  let cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => { cell.style.backgroundColor = '#eeeeee'});
 
 }
 
@@ -187,24 +200,12 @@ function killEventListeners() {
   }
 
 
-  function clear() {
-    killEventListeners();
-  
-    // Highlight current drawing mode 
-    document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
-    this.style.color='white';
-  
-    // 'Erase' cell with default color
-    let cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => { cell.style.backgroundColor = '#eeeeee'});
-
-  }
 
 // Prototypes //
 
 // Tracks current operational state(draw etc) 
 let statusPrototype = {
-  activeTool: '',
+  activeTool:'',
 
   // Make sure active tool, remains active after redraw of grid 
   resetMode() {
@@ -218,6 +219,9 @@ let statusPrototype = {
         break;
       case 'fill':
         fill();
+        break;
+      case 'clearScreen':
+        clear();
         break;
     }
     
