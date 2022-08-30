@@ -97,68 +97,87 @@ function showGridLines() {
 
 
 function drawTool() {
-    // Reset menu btns 
-    document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
+  // Remove event listeners 
+  // killEventListeners();
 
-    // Change nav link to white 
-    this.style.color='white';
-    let ColorInput = document.getElementById('fg');
+  // Reset menu btns 
+  document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
 
-    let cells = document.querySelectorAll('.cell');
+  // Change nav link to white 
+  this.style.color='white';
+  let colorInput = document.getElementById('fg');
 
-    // Mouseover behavior for draw
-    cells.forEach(cell => {cell.addEventListener('mouseover', function(e){
-      let colorInput = document.getElementById('fg').value;
-      e.target.style.backgroundColor=colorInput; }, false)
-  });
-    
+  let cells = document.querySelectorAll('.cell');
+
+  function drawCell(e){
+    let colorInput = document.getElementById('fg').value;
+    e.target.style.backgroundColor = colorInput;
+
+  }
+  // Mouseover behavior for draw
+  cells.forEach(cell => {cell.addEventListener('mouseover', drawCell, false)});
+
+
 }
 
 
 function erase() {
+  // Remove event listeners 
+  // killEventListeners();
+
   // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
   this.style.color='white';
-  
-  // 'Erase' cell with default color
-  let cells = document.querySelectorAll('.cell');
-  cells.forEach(cell => { cell.addEventListener('mouseover', eraseCell)});
 
   function eraseCell(e) {
     e.target.style.backgroundColor = '#eeeeee';
 
   }
+  
+  // 'Erase' cell with default color
+  let cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => { cell.addEventListener('mouseover', eraseCell, false)});
+
+ 
 
   }
 
 
 function fill() {
+  // Remove event listeners 
+  // killEventListeners();
+
   // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'});
   this.style.color = 'white';
 
-  // Remove event listeners 
-  killEventListeners();
-
   // Each cell changes to the same color on click
   let cells = document.querySelectorAll('.cell');
 
-  cells.forEach(cell => cell.addEventListener('click', function() {
+  function fillCells() {
     let bgColor = document.getElementById('bg').value;
-    fillCells(bgColor, cells);}))
+    cells.forEach(cell => cell.style.backgroundColor = bgColor );
+  }
 
-    function fillCells(fillColor, allCells) {
-      allCells.forEach(cell => cell.style.backgroundColor = fillColor );
-    }
+  cells.forEach(cell => cell.addEventListener('click', fillCells, false));
+
+    
 }
 
-function killEventListeners() {
-  // Remove event handlers for all functions 
-  document.querySelectorAll('.cells').forEach(cell => cell.removeEventListener('click', eraseCell));
-  document.querySelectorAll('.cells').forEach(cell => cell.removeEventListener('click', drawCell));
-  document.querySelectorAll('.cells').forEach(cell => cell.removeEventListener('click', fill));
 
-}
+// function killEventListeners() {
+//   let allCells = document.querySelectorAll('.cell');
+
+//   // Remove event handlers for all functions 
+//   allCells.forEach(cell, function(cell) {
+//     // Clone and replace each cell to kill the event listeners 
+//     cell.replaceWith(cell.cloneNode(false));})
+  
+//   }
+
+
+
+
 
 
 // Draw default grid 
