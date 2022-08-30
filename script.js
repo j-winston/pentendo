@@ -34,15 +34,15 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
       // Add cell to column
       rowEl.appendChild(cellEl);
 
-      // Ensure active mode remains active
-      currentState.resetMode();
+      
     }
     // Add column to main-container
   
     mainContainerEl.appendChild(rowEl);
 
   }
-
+  // Ensure active mode remains active
+  currentState.resetMode();
 }
 
 
