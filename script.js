@@ -34,7 +34,6 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
       // Add cell to column
       rowEl.appendChild(cellEl);
 
-      
     }
     // Add column to main-container
   
@@ -122,6 +121,7 @@ function draw() {
   function drawCell(e){
     let colorInput = document.getElementById('fg').value;
     e.target.style.backgroundColor = colorInput;
+   
 
   }
   // Mouseover behavior for draw
@@ -198,7 +198,6 @@ function killEventListeners() {
     cell.replaceWith(cell.cloneNode(false));})
   
   }
-
 
 
 // Prototypes //

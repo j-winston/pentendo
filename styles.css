@@ -270,9 +270,12 @@ input[type="range"] {
     padding: 0px;
     background-color: #eeeeee;
     border: 1px solid #d5d4d4;
-    
+   
 }
 
+.cell:hover {
+    transition: opacity 5s;
+}
 
 
 
@@ -299,42 +302,4 @@ input[type="range"] {
 
 
 
-
-/* Menu Properties */
-/* 
-.left-plate {
-    display:flex;
-    max-width: 30px;
-    background-color: #171717;
-    
-    
-}
-
-.menu-container {
-    display:flex;
-    flex-direction: column;
-    background-color: #404040;
-} */
-/* 
-.swatch-container {
-    display:flex;
-    gap: 20px;
-}
-
-.color-swatch {
-    display:flex;
-    background-color: white;
-    height: 50px;
-    width: 50px;
-}
-
-.menu-items {
-    display:flex;
-    flex-direction: column;
-}
-
-.menu-text {
-    font: open sans;
-    font-size: 34px;
-} */ 
 
