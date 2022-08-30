@@ -1,6 +1,7 @@
 
 // Draws a grid of divs within .main-container 
 function drawGrid(containerWidth, containerHeight, gridSize) {
+
   let numRows = gridSize;
   let numCells = numRows; // if there's 3 rows, there's 3 cells per row
   let cellSize = containerWidth / numCells - 2; // Account for border!
@@ -32,6 +33,9 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
 
       // Add cell to column
       rowEl.appendChild(cellEl);
+
+      // Ensure active mode remains active
+      currentState.resetMode();
     }
     // Add column to main-container
   
@@ -40,23 +44,24 @@ function drawGrid(containerWidth, containerHeight, gridSize) {
   }
 
 }
+
+
+function setGridSize() {
+  gridSize = Number(this.value);
+  clearGrid();
+  // Update grid size indicator
+  updateGridDisplay(gridSize);
+
+  // Redraw grid
+  drawGrid(700, 700, gridSize);
  
+}
 
 
 function clearGrid() {
   const allRows = document.querySelectorAll('.row');
   allRows.forEach(row => row.remove());
 
-}
-
-
-function setGridSize() {
-  gridSize = Number(this.value);
-  clearGrid();
-  // update grid size indicator
-  updateGridDisplay(gridSize);
-  drawGrid(700, 700, gridSize);
- 
 }
 
 
@@ -99,6 +104,9 @@ function showGridLines() {
 
 
 function draw() {
+  // Set active state
+  currentState.activeTool = 'draw';
+
   // Remove event listeners 
   killEventListeners();
 
@@ -106,7 +114,7 @@ function draw() {
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
 
   // Change nav link to white 
-  this.style.color='white';
+  drawBtn.style.color='white';
   let colorInput = document.getElementById('fg');
 
   let cells = document.querySelectorAll('.cell');
@@ -118,11 +126,13 @@ function draw() {
   }
   // Mouseover behavior for draw
   cells.forEach(cell => {cell.addEventListener('mouseover', drawCell, false)});
+ 
   
 }
 
 
 function erase() {
+  currentState.activeTool = 'erase';
   // Remove event listeners 
   killEventListeners();
 
@@ -145,6 +155,7 @@ function erase() {
 
 
 function fill() {
+  currentState.activeTool = 'fill';
   // Remove event listeners 
   killEventListeners();
 
@@ -189,15 +200,40 @@ function killEventListeners() {
 
   }
 
+// Prototypes //
 
+// Tracks current operational state(draw etc) 
+let statusPrototype = {
+  activeTool: '',
 
-// MAIN //
+  // Make sure active tool, remains active after redraw of grid 
+  resetMode() {
+    let mode = this.activeTool;
+    switch(mode) {
+      case 'draw':
+        draw();
+        break;
+      case 'erase':
+        erase();
+        break;
+      case 'fill':
+        fill();
+        break;
+    }
+    
+  }
+}
+
+let currentState = Object.create(statusPrototype);
 
 // Draw default grid 
 drawGrid(700, 700, 2);
 
 // Show grid lines 
 let showingGrid = true;
+
+// Active tool to keep track of current operation mode
+
 
 // Event handlers //
 
