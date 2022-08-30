@@ -98,7 +98,7 @@ function showGridLines() {
 
 function drawTool() {
   // Remove event listeners 
-  // killEventListeners();
+  killEventListeners();
 
   // Reset menu btns 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
@@ -116,14 +116,15 @@ function drawTool() {
   }
   // Mouseover behavior for draw
   cells.forEach(cell => {cell.addEventListener('mouseover', drawCell, false)});
-
-
+  
 }
 
 
 function erase() {
   // Remove event listeners 
-  // killEventListeners();
+  killEventListeners();
+
+  // Once again add the click listeners 
 
   // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'})
@@ -138,14 +139,12 @@ function erase() {
   let cells = document.querySelectorAll('.cell');
   cells.forEach(cell => { cell.addEventListener('mouseover', eraseCell, false)});
 
- 
-
   }
 
 
 function fill() {
   // Remove event listeners 
-  // killEventListeners();
+  killEventListeners();
 
   // Highlight current drawing mode 
   document.querySelectorAll('.nav-links').forEach((link)=>{link.style.color='#575757'});
@@ -161,29 +160,24 @@ function fill() {
 
   cells.forEach(cell => cell.addEventListener('click', fillCells, false));
 
-    
 }
 
 
-// function killEventListeners() {
-//   let allCells = document.querySelectorAll('.cell');
+function killEventListeners() {
+  let allCells = document.querySelectorAll('.cell');
 
-//   // Remove event handlers for all functions 
-//   allCells.forEach(cell, function(cell) {
-//     // Clone and replace each cell to kill the event listeners 
-//     cell.replaceWith(cell.cloneNode(false));})
+  // // Remove event handlers for all functions 
+  allCells.forEach((cell)=> {
+    // Clone and replace each cell to kill the event listeners 
+    cell.replaceWith(cell.cloneNode(false));})
   
-//   }
+  }
 
 
-
-
-
+// MAIN //
 
 // Draw default grid 
 drawGrid(700, 700, 2);
-
-// MAIN 
 
 let showingGrid = true;
 
@@ -201,7 +195,6 @@ gridToggler.addEventListener('click', toggleGridLines);
 const drawBtn = document.querySelector('.draw-btn');
 drawBtn.addEventListener('click', drawTool, false);
 
-
 // Switch to erase mode 
 const eraseBtn = document.querySelector('.erase-btn');
 eraseBtn.addEventListener('click', erase, false);
@@ -214,8 +207,7 @@ fillBtn.addEventListener('click', fill, false);
 const clearBtn = document.querySelector('.clear-btn', false);
 clearBtn.addEventListener('click', drawTool);
 
-
-
+// Color Selectors //
 
 // On click, change background color of swatches 
 document.getElementById('fg').addEventListener('change', (e)=>{
