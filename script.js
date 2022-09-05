@@ -77,37 +77,62 @@ function updateGridDisplay(gridSize) {
 
 
 function toggleGridLines() {
-  // If grid is showing turn it off
-  if (currentState.showingGridLines == true) {
-    alert('turning off');
-    const cells = document.querySelectorAll('.cell');
-    let fgColor = document.getElementById('fg').value;
-    let bgColor = document.getElementById('bg').value;
+  if(currentState.showingGridLines == true){
+    // Turn off grid lines 
+    document.querySelectorAll('.cell').forEach(cell => { cell.style.border ='none';})
+    // Add 1px padding to make up for missing border 
+    document.querySelectorAll('.cell').forEach(cell => { cell.style.padding = '1px';});
 
-      //Change grid lines to match fg or bg color
-      if(currentState.activeTool == 'draw'){
-        let gridLineColor = "1px solid " + fgColor; 
-        cells.forEach(cell => {cell.style.border = gridLineColor;})
+    // Change state
+    currentState.showingGridLines = false;
+    // Show grid activated icon  
+    document.getElementById('grid-toggle-icon').src = "assets/grid-off.png";
 
-      }else if(currentState.activeTool == 'fill'){
-        let gridLineColor = "1px solid " + bgColor; 
-        cells.forEach(cell => {cell.style.border = gridLineColor;})
-      }
-      currentState.showingGridLines = false;
-
-      // change the icon
-      document.getElementById('grid-toggle-icon').src = "assets/grid-off.png";
-
-  // If grid isn't showing, turn it on
-    }else if (currentState.showingGridLines == false) {
-      showGridLines();
-      currentState.showGridLines = true;
-      document.getElementById('grid-toggle-icon').src = "assets/grid-on.png";
-    }
-
-  function showGridLines() {
-    cells.forEach(cell => {cell.style.border = gridLineColor;})
+  }else if(currentState.showingGridLines == false){
+    // Turn on grid lines
+    document.querySelectorAll('.cell').forEach(cell => { cell.style.border ='1px solid #e6e6e6';})
+    // Remove padding and replace with grid lines
+    document.querySelectorAll('.cell').forEach(cell => { cell.style.padding = '0px';});
+    //  Change state
+    currentState.showingGridLines = true;
+    // Show deactivated icon 
+    document.getElementById('grid-toggle-icon').src = "assets/grid-on.png";
   }
+
+
+
+  //   let fgColor = document.getElementById('fg').value;
+  //   let bgColor = document.getElementById('bg').value;
+
+  //   var cells = document.querySelectorAll('.cell');
+  //   var fgColorGrid = "1px solid " + fgColor;
+  //   var bgColorGrid = "1px solid " + bgColor; 
+    
+  // // If grid is showing turn it off
+  // if (currentState.showingGridLines == true) {
+  //   alert('turning off');
+  //       // Check current mode and change grid line color to hide 
+  //     if(currentState.activeTool == 'draw'){
+  //       cells.forEach(cell => {cell.style.border = fgColorGrid;})
+  //       // Change grid lines to match bg if in fill mode 
+  //     }else if(currentState.activeTool == 'fill'){
+  //       cells.forEach(cell => {cell.style.border = bgColorGrid;})
+  //     }
+  //     currentState.showingGridLines = false;
+  //     // change the icon
+  //     document.getElementById('grid-toggle-icon').src = "assets/grid-off.png";
+
+  // // If grid isn't showing, turn it on
+  //   }else if (currentState.showingGridLines == false) {
+  //     alert('turning on');
+  //     showGridLines();
+  //     currentState.showingGridLines = true;
+  //     document.getElementById('grid-toggle-icon').src = "assets/grid-on.png";
+  //   }
+
+  // function showGridLines() {
+  //   cells.forEach(cell => {cell.style.border = "1px solid #e6e6e6";})
+  // }
 
 }
 
