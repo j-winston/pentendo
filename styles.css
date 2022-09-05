@@ -1,11 +1,9 @@
 body {
     display:flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+    height:100vh;
     box-sizing: border-box;
-    background-color: #1f1f1f;
-    margin-top: 8vh;
+    background-color: #3c3c3c;
+    margin-top: 5vh;
     font-family: pretendo;
    
     
@@ -30,6 +28,7 @@ a:active{
     justify-content: flex-start;
     width: 85vw;
     height: 700px;
+    /* box-shadow: 3px 3px 100px #f95050; */
    
     
 }
