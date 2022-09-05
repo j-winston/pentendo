@@ -1,6 +1,8 @@
 body {
     display:flex;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     background-color: #1f1f1f;
     margin-top: 8vh;
@@ -8,14 +10,14 @@ body {
    
     
 }
-body::before {
+/* body::before {
     content: "";
     background-image: url("assets/nes.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;  
    
-}
+} */
 
 
 a:active{
@@ -276,7 +278,7 @@ input[type="range"] {
 
 .row {
     display: flex;
-    background-color: #eeeeee;
+    /* background-color: #eeeeee; */
     
 }
 
