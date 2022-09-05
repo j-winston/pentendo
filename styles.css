@@ -276,7 +276,7 @@ input[type="range"] {
 
 .row {
     display: flex;
-    background-color: rgb(153, 153, 153);
+    background-color: #eeeeee;
     
 }
 
@@ -285,8 +285,9 @@ input[type="range"] {
     margin:0px;
     padding: 0px;
     background-color: #eeeeee;
-    border: 1px solid #d5d4d4;
+    border: 1px solid #e6e6e6;
     transition: opacity 4s;
+    border
    
 }
 
@@ -306,13 +307,6 @@ input[type="range"] {
 }
 
 
-/* Drawing Tools */
-
-.draw:hover {
-    background-color: #0d0d0d;
-    color: black;
-
-}
 
 
 

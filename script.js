@@ -1,6 +1,7 @@
 
 // Draws a grid of divs within .main-container 
 function drawGrid(containerWidth, containerHeight, gridSize) {
+ 
 
   let numRows = gridSize;
   let numCells = numRows; // if there's 3 rows, there's 3 cells per row
@@ -77,30 +78,41 @@ function updateGridDisplay(gridSize) {
 
 function toggleGridLines() {
   // If grid is showing turn it off
-  if (showingGrid) {
+  if (currentState.showingGridLines == true) {
+    alert('turning off');
     const cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => cell.style.border = "1px solid #eeeeee");
-    // Set latch for next time around
-    showingGrid = false;
-    // change the icon
-    document.getElementById('grid-toggle-icon').src = "assets/grid-off.png";
-    
+    let fgColor = document.getElementById('fg').value;
+    let bgColor = document.getElementById('bg').value;
 
+      //Change grid lines to match fg or bg color
+      if(currentState.activeTool == 'draw'){
+        let gridLineColor = "1px solid " + fgColor; 
+        cells.forEach(cell => {cell.style.border = gridLineColor;})
 
+      }else if(currentState.activeTool == 'fill'){
+        let gridLineColor = "1px solid " + bgColor; 
+        cells.forEach(cell => {cell.style.border = gridLineColor;})
+      }
+      currentState.showingGridLines = false;
 
-  }else {
-    showGridLines();
-    showingGrid = true;
-    document.getElementById('grid-toggle-icon').src = "assets/grid-on.png";
+      // change the icon
+      document.getElementById('grid-toggle-icon').src = "assets/grid-off.png";
+
+  // If grid isn't showing, turn it on
+    }else if (currentState.showingGridLines == false) {
+      showGridLines();
+      currentState.showGridLines = true;
+      document.getElementById('grid-toggle-icon').src = "assets/grid-on.png";
+    }
+
+  function showGridLines() {
+    cells.forEach(cell => {cell.style.border = gridLineColor;})
   }
-}
-
-
-function showGridLines() {
-  const cells = document.querySelectorAll('.cell');
-  cells.forEach(cell => cell.style.border = "1px solid #d5d4d4");
 
 }
+
+
+
 
 
 function draw() {
@@ -218,8 +230,9 @@ function killEventListeners() {
 // Tracks current operational state(draw etc) 
 let statusPrototype = {
   activeTool:'',
+  showingGridLines: true,
 
-  // Make sure active tool, remains active after redraw of grid 
+  // Make sure the active mode persists after redrawing of grid
   resetMode() {
     let mode = this.activeTool;
     switch(mode) {
@@ -244,11 +257,6 @@ let currentState = Object.create(statusPrototype);
 
 // Draw default grid 
 drawGrid(700, 700, 2);
-
-// Show grid lines 
-let showingGrid = true;
-
-// Active tool to keep track of current operation mode
 
 
 // Event handlers //
